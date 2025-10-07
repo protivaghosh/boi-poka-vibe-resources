@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToStoreBd } from '../../Utility/addToBd';
+import Swal from 'sweetalert2'
 
 const BookDetails = () => {
     const {id} = useParams();
@@ -9,7 +10,13 @@ const BookDetails = () => {
     const singleBook = data.find(book=>book.bookId === bookId);
    const {bookName, image, review, publisher, category, tags} = singleBook || {};
 
+   
    const handleMarksRead =(id)=>{
+    Swal.fire({
+  title: "Drag me!",
+  icon: "success",
+  draggable: true
+});
        addToStoreBd(id);
    }
 
