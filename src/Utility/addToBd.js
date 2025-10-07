@@ -21,6 +21,6 @@ else{
 }
 
 }
-export{addToStoreBd};
+export{addToStoreBd, getStoreBook};
 
 
