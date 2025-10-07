@@ -1,12 +1,17 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoreBd } from '../../Utility/addToBd';
 
 const BookDetails = () => {
     const {id} = useParams();
     const bookId=parseInt(id)
     const data = useLoaderData();
     const singleBook = data.find(book=>book.bookId === bookId);
-   const {bookName, image, review, publisher, category, tags} = singleBook;
+   const {bookName, image, review, publisher, category, tags} = singleBook || {};
+
+   const handleMarksRead =(id)=>{
+       addToStoreBd(id);
+   }
 
     return (
        <div className="hero bg-base-200 min-h-screen">
@@ -38,7 +43,7 @@ const BookDetails = () => {
 
     <div className='border-1 border-dashed mt-4 text-gray-400'></div>
       </p>
-     <button className="btn btn-active btn-accent">Read</button>
+     <button onClick={()=>handleMarksRead(id)} className="btn btn-active btn-accent">Read</button>
      <button className="btn btn-active btn-info ml-6">Wishlist</button>
     </div>
   </div>
