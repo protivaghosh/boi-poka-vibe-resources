@@ -7,7 +7,7 @@ const Book = ({singleBook}) => {
     // const data =use(bookPage);
     // console.log(data)
    const {bookName, author, image, rating, category,
- publisher, tags, bookId} = singleBook
+ publisher, tags, bookId, totalPages} = singleBook
     return(    
        <Link to={`/bookDetails/${bookId}`}>
         <div className="card bg-base-100 w-96 shadow-sm p-6">
@@ -25,7 +25,7 @@ const Book = ({singleBook}) => {
     </div>
     <h2 className="card-title">
       {bookName}
-      <div className="badge ">{publisher}</div>
+      <div className="badge ">{totalPages}</div>
     </h2>
     <p>By : {author}</p>
     <div className="card-actions justify-end">
